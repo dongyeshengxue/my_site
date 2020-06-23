@@ -1,0 +1,117 @@
+<div class="calendar-widget">
+  {% include "blog/calendar.html" %}
+</div>
+
+<!-- 拖慢网页速度，暂时隐藏 -->
+<!--<div id="text" class="widget widget_text">
+	<h3 class="widget-title">新浪微博</h3>
+	<div class="textwidget">
+    <iframe width="100%" height="500" class="share_self"  frameborder="0" scrolling="no" src="https://widget.weibo.com/weiboshow/index.php?language=&width=0&height=500&fansRow=2&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=1&uid=2734584944&verifier=42b4a725&dpc=1">
+
+    </iframe>
+	</div>
+</div>-->
+
+<div class="widget widget_categories">
+  <h3 class="widget-title">文章搜索</h3>
+  <div id="search" class="widget_search">
+    <form role="search" method="get" class="search-form" action="/search/">
+      <div>
+        <input value="{{ s|default:'' }}" name="s" class="s query" type="text" placeholder="搜索 ···">
+        <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="new_post" class="widget widget_categories">
+  <h3 class="widget-title">最热文章</h3>
+  <ul>
+    {% if new_post %}
+      {% for item in new_post %}
+        <li>
+          <a href="{{ item.get_absolute_url }}" title="{{ item.title }}">
+            <span class="{% if forloop.counter == 1 %}first-rank{% elif forloop.counter == 2 %}second-rank{% elif forloop.counter == 3 %}third-rank{% else %}other-rank{% endif %}">
+              {{ forloop.counter }}
+            </span>&nbsp;&nbsp;
+            {% if item.title|length > 15 %}
+              {{ item.title|truncatechars:15 }}...
+            {% else %}
+              {{ item.title }}
+            {% endif %}&nbsp;({{ item.count }})
+          </a>
+        </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+</div>
+
+<div id="archives" class="widget widget_archive widget-hover">
+  <h3 class="widget-title">文章归档</h3>
+  <ul>
+    {% if date_list %}
+      {% for x, y in date_list %}
+        <li>
+          <i class="fa fa-calendar-o"></i>
+          <a href="{% url 'archive_month' year=x.year month=x.month %}">{{ x.year }}年{{ x.month }}月 ( {{ y }} )</a>
+        </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+</div>
+
+<div id="categories" class="widget widget_categories widget-hover">
+	<h3 class="widget-title">分类目录</h3>
+	<ul>
+    {% if classification %}
+      {% for x, y in classification %}
+        <li>
+          <i class="fa fa-bookmark-o"></i>
+          <a href="{% url 'classfiDetail' classfi=x.name %}">{{ x.name }} ( {{ y }} )</a>
+        </li>
+      {% endfor %}
+    {% endif %}
+	</ul>
+</div>
+
+<div id="tag_cloud" class="widget widget_tag_cloud">
+  <h3 class="widget-title">标签云</h3>
+  {% for tag in tag_list %}
+    <a href="/articleTag/{{ tag.name }}" style="background-color:{{ tag.color }}" class="new_tag">
+      {{ tag.name }}
+    </a>
+  {% endfor %}
+  <div class="clearfix"></div>
+</div>
+
+<!--<div id="archives" class="widget widget_archive">
+  <h3 class="widget-title">邮件订阅</h3>
+  <form action="">
+    <div class="form-inline">
+      <input type="text" class="form-control" placeholder="请输入邮箱地址">
+      <button class="btn btn-success">订阅</button>
+    </div>
+  </form>
+</div>-->
+
+<!-- 广告位 -->
+{% if ads_imgs %}
+<div id="archives" class="widget widget_archive">
+  <div class="swiper-container" style="border-radius:2px">
+    <div class="swiper-wrapper" id="ad_swiper">
+      {% for item in ads_imgs %}
+        <div class="swiper-slide">
+          <a href="{{ item.link }}" target="_blank">
+            <img src="{{ item.path }}" title="{{ item.description }}"/>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</div>
+{% endif %}

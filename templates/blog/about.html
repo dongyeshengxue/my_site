@@ -1,0 +1,79 @@
+{% extends "blog/base.html" %}
+{% load bootstrap_pagination %}
+{% block title %}
+  杨学峰博客 | 关于我
+{% endblock %}
+{% block path %}
+  当前位置&nbsp;:&nbsp;<a href = "{% url 'home'%}">首页&nbsp;</a>»&nbsp;关于我
+{% endblock %}
+{% block content %}
+  <div class="archive">
+    <div id="archives">
+      <h3 style="font-weight: bold">
+        关于本站
+      </h3>
+      <blockquote>
+        <p>1. 使用Python + Django + MySQL + Redis开发的个人博客，GitHub地址：<a href="https://github.com/a1401358759/my_site">github</a>。
+        欢迎吐槽、star和fork。<p>
+        <p>2. 本站大部分文章是博主工作中遇到问题时，通过网络资源查找到的解决方法的总结记录，如有不当之处，请联系博主删除，敬请谅解！</p>
+        <p>3. 本站建于 2018-02-01，已经稳定运行 <span id="timeDate" style="color:red;">载入天数...</span><span id="times" style="color:red;">载入时分秒...</span></p>
+      </blockquote>
+
+      <h3 style="font-weight: bold">
+        关于我
+      </h3>
+      <blockquote>
+        <p>1. IT行业python男一枚，东搞西搞，目前工作于研发部，对在线学习和开发感兴趣，偶尔打LOL，看些电视剧和电影。</p>
+        <p>2. <a href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=rovwt9lv" target="_blank">领取阿里云专属优惠券</a></p>
+      </blockquote>
+
+      <h3 style="font-weight: bold">
+        联系我
+      </h3>
+      <blockquote>
+        <ul>
+          <p><i class="fa fa-btc"></i>&nbsp;博客：<a href="{% url 'home' %}">杨学峰博客</a></p>
+          <p><i class="fa fa-envelope-o"></i>&nbsp;邮箱：<a target="_blank" href="javascript:;">13552974161@163.com</a></p>
+          <p><i class="fa fa-github"></i>&nbsp;GitHub：<a target="_blank" href="https://github.com/a1401358759">github</a></p>
+          <p><i class="fa fa-qq"></i>&nbsp;QQ： <a target="_blank" href="javascript:;">1401358759</a></p>
+          <p><i class="fa fa-weixin"></i>&nbsp;微信：<a href="javascript:;">yangxuefengwx</a></p>
+        </ul>
+      </blockquote>
+    </div>
+  </div>
+  <!-- 评论框div -->
+  <div id="vcomments" class="widget widget_recent_comments">
+    <!-- 评论表单 -->
+    {% include "blog/comment_form.html" %}
+    <!-- 评论列表 -->
+    {% include "blog/comment_list.html" %}
+  </div>
+
+  <script type="text/javascript" src="/static/js/comments.js"></script>
+  <script>
+    var now = new Date();
+    function createtime() {
+      var grt = new Date("02/01/2018 00:00:00");  // 此处修改你的建站时间或者网站上线时间 月/日/年
+      now.setTime(now.getTime() + 250);
+      days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+      if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+      mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+      snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+      document.getElementById("timeDate").innerHTML = dnum +" 天 ";
+      document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒。";
+    }
+    setInterval("createtime()", 250);
+    jQuery(function(){
+      // get_comments(window.location.pathname);
+      if (getUrlParam('page')) {
+        window.location.href = '#vcomments';
+      }
+    });
+  </script>
+{% endblock %}
+
+{% block side %}
+	{% include "blog/_side.html" %}
+{% endblock %}

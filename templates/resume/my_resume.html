@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我的简历</title>
+<meta name="description" content="个人简历描述">
+<meta name="keywords" content="杨学峰简历" />
+
+<!-- Favicons -->
+<link rel="shortcut icon" href="/static/css/logo.png" type="image/x-icon" />
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="/static/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/resume/fonts/font-awesome/css/font-awesome.css">
+
+<!-- Slider -->
+<link href="/static/resume/css/owl.carousel.css" rel="stylesheet" media="screen">
+<link href="/static/resume/css/owl.theme.css" rel="stylesheet" media="screen">
+
+<!-- Stylesheet -->
+<link rel="stylesheet" type="text/css"  href="/static/resume/css/style.css">
+<link rel="stylesheet" type="text/css" href="/static/resume/css/prettyPhoto.css">
+<link rel="stylesheet" type="text/css" href="/static/resume/fonts/sns_fonts/iconfont.css">
+<style>
+  .portfolio-item img {
+    width: 262.5px;
+    height: 262.5px;
+  }
+</style>
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <!-- Navigation -->
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand page-scroll" href="#page-top"><i class="fa fa-chevron-up"></i>&nbsp;返回顶部</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <ul class="nav navbar-nav">
+          <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+          <li class="hidden">
+            <a href="#page-top"></a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#services">基本资料</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#works">项目经验</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#about">专业技能</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#team">工作经历</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#testimonials">自我评价</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#contact">联系方式</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
+
+  <!-- Header -->
+  <header class="intro">
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <h1>简历-<span class="brand-heading">杨学峰</span></h1>
+            <p class="intro-text">喜欢技术，热爱挑战</p>
+            <a href="#services" class="btn btn-circle page-scroll">
+              <i class="fa fa-angle-double-down animated"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="copyrights">杨学峰简历 <a href="{% url 'my_resume' %}" >Python工程师</a></div>
+  <!-- 基本资料 -->
+  <div id="services" class="text-center">
+    <div class="container">
+      <div class="section-title center">
+        <h2><strong>基本资料</strong></h2><hr>
+      </div>
+      <div class="space"></div>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 service"> <i class="fa fa-user"></i>
+          <h4><strong>个人信息</strong></h4>
+          <p>
+            英文名: Daniel &nbsp;性别：男</br>
+            年龄: 26岁 籍贯：内蒙古
+          </p>
+        </div>
+        <div class="col-md-3 col-sm-6 service"> <i class="fa fa-university"></i>
+          <h4><strong>毕业学校</strong></h4>
+          <p>
+            毕业学校：河南理工大学</br>
+            学习技能：编程
+          </p>
+        </div>
+        <div class="col-md-3 col-sm-6 service"> <i class="fa fa-mortar-board"></i>
+          <h4><strong>专业学历</strong></h4>
+          <p>
+            专业：电子信息工程</br>
+            学历：大学本科
+          </p>
+        </div>
+        <div class="col-md-3 col-sm-6 service"> <i class="fa fa-phone"></i>
+          <h4><strong>联系方式</strong></h4>
+          <p>
+            QQ：1401358759</br>
+            邮箱：13552974161@163.com</br>
+            手机: 13552974161
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 项目经验 -->
+  <div id="works">
+    <div class="container"> <!-- Container -->
+      <div class="section-title text-center center">
+        <h2><strong>项目经验</strong></h2><hr>
+        <div class="clearfix"></div>
+        <p>主要项目涉及云计算、共享出行、H5营销、互动现场、防伪溯源等。</p>
+        <p style="margin-bottom: 40px">主要技术栈有HTML + CSS + JS + Vue + 小程序 + Python + Django + Mysql + Celery + Redis + Supervisor + Docker等。</p>
+      </div>
+      <div class="row">
+        <div class="portfolio-items">
+          <div class="col-sm-6 col-md-3 col-lg-3 web">
+            <div class="portfolio-item">
+              <div class="hover-bg">
+                <div class="hover-text">
+                  <h4><a href='https://mada.zhengyitech.com' target='_blank' title="防伪溯源">防伪溯源</a></h4>
+                  <small>技术：Python + Django + Mysql + Celery + Redis + Supervisor + Docker</small>
+                  <div class="clearfix"></div>
+                  <i class="fa fa-search"></i>
+                </div>
+                <img src="https://img.yangsihan.com/1568000906854.jpg" class="img-responsive" alt="防伪溯源">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3 col-lg-3 web">
+            <div class="portfolio-item">
+              <div class="hover-bg">
+                <div class="hover-text">
+                  <h4><a href="https://pd.zhengyitech.com/" target='_blank' title="互动营销">互动营销</a></h4>
+                  <small>技术：Python + Django + Mysql + Celery + Redis + Supervisor + Docker</small>
+                  <div class="clearfix"></div>
+                  <i class="fa fa-search"></i>
+                </div>
+                <img src="https://img.yangsihan.com/1568001049744.jpg" class="img-responsive" alt="互动营销">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3 col-lg-3 web">
+            <div class="portfolio-item">
+              <div class="hover-bg">
+                <div class="hover-text">
+                  <h4><a href="http://meeting.zhengyitech.com" target='_blank' title="互动现场">互动现场</a></h4>
+                  <small>技术：Python + Django + Mysql + Celery + Redis + Supervisor + Docker</small>
+                  <div class="clearfix"></div>
+                  <i class="fa fa-search"></i>
+                </div>
+                <img src="https://img.yangsihan.com/1568001154240.jpg" class="img-responsive" alt="互动现场">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3 col-lg-3 web">
+            <div class="portfolio-item">
+              <div class="hover-bg">
+                <div class="hover-text">
+                  <h4><a href='http://car.ablefly.cn/manager/' target='_blank' title="能翔优卡">能翔优卡</a></h4>
+                  <small>技术：Python + Django + Mysql + Celery + Redis + Supervisor + Docker</small>
+                  <div class="clearfix"></div>
+                  <i class="fa fa-search"></i>
+                </div>
+                <img src="https://img.yangsihan.com/goshare.jpeg" class="img-responsive" alt="能翔优卡">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3 col-lg-3 web">
+            <div class="portfolio-item">
+              <div class="hover-bg">
+                <div class="hover-text">
+                  <h4><a href='http://qt.zhengyitech.com' target='_blank' title="可口可乐质检">可口可乐</a></h4>
+                  <small>技术：Python + Django + Mysql + Celery + Redis + Supervisor + Docker</small>
+                  <div class="clearfix"></div>
+                  <i class="fa fa-search"></i>
+                </div>
+                <img src="https://img.yangsihan.com/cola.jpeg" class="img-responsive" alt="可口可乐">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3 col-lg-3 branding">
+            <div class="portfolio-item">
+              <div class="hover-bg">
+                <div class="hover-text">
+                  <h4><a href="http://keyman.zhengyitech.com" target='_blank' title="小罐茶">小罐茶</a></h4>
+                  <small>技术：Python + Django + Mysql + Celery + Redis + Supervisor + Docker</small>
+                  <div class="clearfix"></div>
+                  <i class="fa fa-search"></i>
+                </div>
+                <img src="https://img.yangsihan.com/smalltea.jpeg" class="img-responsive" alt="小罐茶">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3 col-lg-3 web app">
+            <div class="portfolio-item">
+              <div class="hover-bg">
+                <div class="hover-text">
+                  <h4><a href='http://hermes-test.ndcyy.com' target='_blank' title="小龙虾防伪溯源">小龙虾防伪溯源</a></h4>
+                  <small>技术：Python + Django + Mysql + Celery + Redis + Supervisor + Docker</small>
+                  <div class="clearfix"></div>
+                  <i class="fa fa-search"></i>
+                </div>
+                <img src="https://img.yangsihan.com/longxia.jpeg" class="img-responsive" alt="小龙虾防伪溯源">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3 col-lg-3 branding app web">
+            <div class="portfolio-item">
+              <div class="hover-bg">
+                <div class="hover-text">
+                  <h4><a href="http://www.yangsihan.com" target='_blank' title="个人博客">个人博客</a></h4>
+                  <small>技术：Python + Django + Mysql + Celery + Redis + Supervisor + Docker</small>
+                  <div class="clearfix"></div>
+                  <i class="fa fa-search"></i>
+                </div>
+                <img src="https://img.yangsihan.com/1568000498955.jpg" class="img-responsive" alt="个人博客">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 专业技能 -->
+  <div id="about">
+    <div class="container">
+      <div class="section-title text-center center">
+        <h2><strong>专业技能</strong></h2><hr>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><img src="https://img.yangsihan.com/about.png" class="img-responsive"></div>
+        <div class="col-md-6">
+          <div class="about-text"><i class="fa fa-users"></i>
+            <div class="padding-left"><h4>前端</h4>
+            <p>熟练使用HTML/CSS技术，精通Javascript/jquery编程，能够使用vue.js等前端框架进行模块开发，使用npm，gulp等前端工具，了解react.js和angular.js等前端新技术</p></div>
+            <i class="fa fa-magic"></i>
+            <div class="padding-left"><h4>后端</h4>
+            <p>熟练使用Python + Django进行Web开发，熟练使用MySQL数据库，熟练使用Celery、Redis、Supervisor等，熟练使用Docker进行项目部署等。</p></div>
+            <i class="fa fa-check-square-o"></i>
+            <div class="padding-left"><h4>其它</h4>
+            <p>懂网站性能优化，网站百度排名和SEO优化，熟悉常见的Nginx + uWSGI性能调优等。熟悉域名和域名解析等，熟练使用阿里云和腾讯云平台。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="achivements" class="section dark-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
+          <div class="achivement-box">
+            <i class="fa fa-heartbeat"></i>
+            <span class="count">26</span>
+            <h4>Age Years</h4>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <div class="achivement-box">
+            <i class="fa fa-code"></i>
+            <span class="count">100000</span>
+            <h4>Code Amount</h4>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <div class="achivement-box">
+            <i class="fa fa-h-square"></i>
+            <span class="count">7200</span>
+            <h4>Work Hour</h4>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <div class="achivement-box">
+            <i class="fa fa-trophy"></i>
+            <span class="count">10</span>
+            <h4>Projects Amount</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主要经历 -->
+  <div id="team" class="text-center">
+    <div class="container">
+      <div class="section-title center">
+        <h2><strong>工作经历</strong></h2><hr>
+        <p>热爱互联网，热爱技术，注重代码整洁和用户体验</p>
+      </div>
+      <div id="row">
+        <div class="col-md-3 col-sm-6">
+          <div class="thumbnail"> <img src="/static/resume/img/team/jinyuanwanbo.jpg" alt="金源万博" class="img-circle team-img">
+            <div class="caption">
+              <h3>金源万博培训</h3>
+              <p>Python培训</p>
+              <p>培训时间：2015.7-2015.10</p>
+              <p>主要学习Python语言，Django框架，前端技术，网站制作和开发</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="thumbnail"> <img src="/static/resume/img/team/speedycloud.jpg" alt="北京迅达云成科技有限公司" class="img-circle team-img">
+            <div class="caption">
+              <h3>北京迅达云成科技有限公司</h3>
+              <p>Python工程师</p>
+              <p>工作时间：2015.10-2016.09</p>
+              <p>主要使用Python+Django从事云平台(公有云和私有云)和CDN平台的开发工作</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="thumbnail"> <img src="/static/resume/img/team/knowyourself.jpg" alt="知我探索" class="img-circle team-img">
+            <div class="caption">
+              <h3>知我探索教育有限公司</h3>
+              <p>Python工程师</p>
+              <p>工作时间：2016.10-2016.12</p>
+              <p>主要负责后端代码的编写以及服务器代码的更新和数据库的日常维护等</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="thumbnail"> <img src="/static/resume/img/team/zhengyi.jpg" alt="正宜(北京)科技有限公司" class="img-circle team-img">
+            <div class="caption">
+              <h3>正宜(北京)科技有限公司</h3>
+              <p>Python工程师</p>
+              <p>工作时间：2017.02-2019-09</p>
+              <p>主要负责能翔优卡共享出行、正宜科技防伪溯源、互动营销和互动现场的部分模块和接口编写等</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 自我评价 -->
+  <div id="testimonials" class="text-center">
+    <div class="container">
+      <div class="section-title center">
+        <h2><strong>自我评价</strong></h2><hr>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div id="testimonial" class="owl-carousel owl-theme">
+            <div class="item">
+              <p>非常热爱编程，喜欢钻研新的技术，喜欢接受不同的挑战。</br>具有很强的自学能力和良好的学习方法。</p>
+            </div>
+            <div class="item">
+              <p>良好的团队合作精神，能迅速融入新的团队，平易近人，乐观开朗。</p>
+            </div>
+            <div class="item">
+              <p>有强烈的责任感，工作踏实，积极上进，吃苦耐劳。</br>能在较大的压力下保持良好的工作状态，善于自我调节。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 联系方式 -->
+  <div id="contact" class="text-center">
+    <div class="container">
+      <div class="section-title center">
+        <h2><strong>联系方式</strong></h2><hr>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-4"> <i class="fa fa-map-marker fa-2x"></i>
+          <p>北京市朝阳区</p>
+        </div>
+        <div class="col-md-4"> <i class="fa fa-envelope-o fa-2x"></i>
+          <p>13552974161@163.com</p>
+        </div>
+        <div class="col-md-4"> <i class="fa fa-phone fa-2x"></i>
+          <p>13552974161</p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav id="footer">
+  <div class="container">
+    <div class="fnav" style="text-align:center">
+      <p>Copyright &copy; 2018 作者: Daniel Python工程师
+    </div>
+  </div>
+</nav>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="/static/resume/js/jquery.1.11.1.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="/static/resume/js/bootstrap.js"></script>
+<script type="text/javascript" src="/static/resume/js/SmoothScroll.js"></script>
+<script type="text/javascript" src="/static/resume/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="/static/resume/js/jquery.isotope.js"></script>
+<script type="text/javascript" src="/static/resume/js/jquery.counterup.js"></script>
+<script type="text/javascript" src="/static/resume/js/waypoints.js"></script>
+<script type="text/javascript" src="/static/resume/js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="/static/resume/js/contact_me.js"></script>
+<script type="text/javascript" src="/static/resume/js/owl.carousel.js"></script>
+
+<!-- Javascripts -->
+<script type="text/javascript" src="/static/resume/js/main.js"></script>
+<script type="text/javascript">
+  $(function() {
+    var u = navigator.userAgent;
+    if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1 || u.indexOf('iPhone') > -1 || u.indexOf('Windows Phone') > -1 || navigator.userAgent.indexOf("iPad") >- 1) {
+      $(".hover-bg .hover-text").css({'opacity': '1'});
+      $(".hover-bg .hover-text>h4").css({'opacity': '1', '-webkit-transform': 'translateY(0)', 'transform': 'translateY(0)'});
+      $(".hover-bg .hover-text>i").css({'opacity': '1'});
+    }
+  });
+</script>
+</body>
+</html>
