@@ -206,7 +206,7 @@ def archive(request):
 
 
 class RSSFeed(Feed):
-    title = "RSS feed - 杨学峰博客"
+    title = "RSS feed - 东野生雪博客"
     link = "feeds/posts/"
     description = "RSS feed - blog posts"
 
