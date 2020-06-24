@@ -68,9 +68,9 @@ DATABASES = {
         'CONN_MAX_AGE': 3600,
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'my-site',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'USER': 'root',
+        'PASSWORD': 'qwer1234',
+        'HOST': '172.18.0.1',
         'PORT': '3306',
         'TEST': {
             'CHARSET': 'utf8mb4',
@@ -90,7 +90,7 @@ SESSION_COOKIE_AGE = 24 * 60 * 60  # 当上例为False时，此项生效，单�
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',  # django-redis==4.11.0支持Django3.0+
-        'LOCATION': 'redis://172.17.0.1:6380/1',
+        'LOCATION': 'redis://172.18.0.1:6379/1',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
             'PASSWORD': '',
