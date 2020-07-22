@@ -9,4 +9,4 @@ AliyunOssProtectedConf = {
 
 DOMAIN_NAME = "https://yangsihan.com"
 
-BLOGGER_EMAIL = "13552974161@163.com"
+BLOGGER_EMAIL = "15184620585@163.com"

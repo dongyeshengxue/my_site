@@ -46,37 +46,52 @@ sudo apt-get install python3-dev
 git clone https://github.com/a1401358759/my_site.git
 ```
 
-3. 在项目根目录下创建项目所需要的文件夹
+3. 创建虚拟环境
+
+```bash
+sudo pip install virtualenv
+sudo pip install virtualenvwrapper  # 安装虚拟环境
+mkvirtualenv #  虚拟环境名称
+例：
+mkvirtualenv my_site
+
+workon 虚拟环境名称 #  启动虚拟环境
+```
+创建成功后，会自动工作在这个虚拟环境上
+提示1：创建虚拟环境需要联网
+提示2：工作在虚拟环境上，提示符最前面会出现“(虚拟环境名称)”
+
+4. 在项目根目录下创建项目所需要的文件夹
 
 ```bash
 mkdir logs  # 用来存储项目日志
 ```
 
-4. 新建`local_settings.py`用来覆盖`settings.py`里面的数据库配置
+5. 新建`local_settings.py`用来覆盖`settings.py`里面的数据库配置
 
 ```bash
 cp -r my_site/local_settings.py.template local_settings.py
 ```
 
-5. 进入数据库创建数据库
+6. 进入数据库创建数据库
 
 ```bash
 CREATE DATABASE `my-site` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
 
-6. 同步数据库
+7. 同步数据库
 
 ```bash
 python3 manage.py migrate
 ```
 
-7. 安装项目所需要的包
+8. 安装项目所需要的包
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-8. 因为本项目使用了Redis，所以需要安装redis-server
+9. 因为本项目使用了Redis，所以需要安装redis-server
 
 ```bash
 sudo apt-get install redis-server  # 安装
@@ -137,7 +152,7 @@ supervisord -c etc/supervisor.conf
 
 # 联系我
 
-1. 邮箱：13552974161@163.com
-2. QQ: 1401358759
+1. 邮箱：15184620585@163.com
+2. QQ: 474517132
 
 **本人博客地址:** [我的博客](http://www.yangsihan.com)
