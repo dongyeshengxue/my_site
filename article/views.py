@@ -88,7 +88,7 @@ def detail(request, year, month, day, id):
     博客详情
     """
     try:
-        article = Article.objects.get(id=id)
+        article = Article.objects.filter(status=BlogStatus.PUBLISHED).get(id=id)
         # 文章阅读量统计，12小时内连续访问的IP只记录一次
         ip_address = get_clientip(request)
         key = ip_address + '_' + str(id)
@@ -243,7 +243,7 @@ def blog_search(request):
     if s:
         query &= (Q(title__icontains=s) | Q(classification__name=s) | Q(tags__name=s))
 
-    articles = Article.objects.filter(query)
+    articles = Article.objects.filter(status=BlogStatus.PUBLISHED).filter(query)
     page_num = request.GET.get("page") or 1
     page_size = request.GET.get("page_size") or 5
     articles, total = paginate(articles, page_num=page_num, page_size=page_size)
