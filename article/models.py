@@ -119,7 +119,7 @@ class ArticleManager(models.Model):
 class Article(models.Model):  # 文章
     title = models.CharField(max_length=100, verbose_name='标题')
     author = models.ForeignKey(Author, verbose_name='作者', on_delete=models.CASCADE)
-    tags = models.ManyToManyField(Tag, blank=True, verbose_name='标签')  # 标签
+    tags = models.ManyToManyField(Tag, blank=True, verbose_name='标签', through='Article_Tags')  # 标签
     classification = models.ForeignKey(Classification, verbose_name='分类', on_delete=models.CASCADE)  # 分类
     content = models.TextField(verbose_name='文章内容', default="")
     publish_time = models.DateTimeField(auto_now_add=True, verbose_name='发表时间')
@@ -152,7 +152,7 @@ class Article(models.Model):  # 文章
     def get_before_article(self):  # 返回当前文章的前一篇文章
         index = 0
         temp = Article.objects.filter(status=BlogStatus.PUBLISHED).order_by('id')
-        cur = Article.objects.filter(status=BlogStatus.PUBLISHED).get(id=self.id)
+        cur = Article.objects.get(id=self.id)
         count = 0
         for i in temp:
             if i.id == cur.id:
@@ -167,7 +167,7 @@ class Article(models.Model):  # 文章
         index = 0
         temp = Article.objects.filter(status=BlogStatus.PUBLISHED).order_by('id')
         max_num = len(temp) - 1
-        cur = Article.objects.filter(status=BlogStatus.PUBLISHED).get(id=self.id)
+        cur = Article.objects.get(id=self.id)
         count = 0
         for i in temp:
             if i.id == cur.id:
@@ -184,6 +184,11 @@ class Article(models.Model):  # 文章
     class Meta:
         ordering = ['-id']
         verbose_name_plural = "博文管理"
+
+
+class Article_Tags(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
 
 
 class Links(TimeModelMixin):

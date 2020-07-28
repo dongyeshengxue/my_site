@@ -97,11 +97,12 @@ def detail(request, year, month, day, id):
             article.save(update_fields=['count'])
             cache.set(key, str(datetime.now() + timedelta(hours=12)), 12 * 60 * 60)  # 设置12小时过期
 
-        statics_count = Article.objects.aggregate(
+        statics_count = Article.objects.filter(status=BlogStatus.PUBLISHED).aggregate(
             blog_count=Count('id', distinct=True),
             read_count=Sum('count'),
             tags_count=Count('tags', distinct=True)
         )
+        print(statics_count)
         # 生成文章目录
         if article.editor == EditorKind.Markdown:
             md = markdown.Markdown(extensions=[
