@@ -656,7 +656,7 @@ def add_carousel_view(request):
         return HttpResponseRedirect(reverse('carousel_list'))
     try:
         filestream = request.FILES.get('path')
-        key, img_path = upload_data(filestream, 'blog')
+        key, img_path = upload_data(filestream, '474517132')
         img_type = int(form.cleaned_data.get('img_type'))
         CarouselImg.objects.create(
             name=form.cleaned_data.get('name'),

@@ -41,7 +41,7 @@ def upload_file(request):
     if not filestream:
         return render_json({"success": 0, "message": "请选择文件", "url": ""})
 
-    key, img_path = upload_data(filestream, 'blog')
+    key, img_path = upload_data(filestream, '474517132')
     return render_json({"success": 1, "message": "上传成功", "url": img_path})
 
 
@@ -58,7 +58,7 @@ def upload_rich_file(request):
 
     img_path_list = []
     for item in files:
-        key, img_path = upload_data(files.get(item), 'blog')
+        key, img_path = upload_data(files.get(item), '474517132')
         img_path_list.append(img_path)
 
     return render_json({"errno": 0, "data": img_path_list})
@@ -408,6 +408,10 @@ def get_comments_view(request):
         "page_num": page_num,
         "page_size": page_size,
     })
+
+
+def lucky_draw(request):
+    return render(request, "blog/Lucky_draw.html")
 
 
 def page_not_found(request, exception):

@@ -25,5 +25,6 @@ urlpatterns = [
     re_path(r'^upload-rich/$', views.upload_rich_file, name='upload_rich_file'),
     re_path(r'^add-comments/$', views.add_comments_view, name='add_comments'),
     re_path(r'^get-comments/$', views.get_comments_view, name='get_comments'),
+    re_path(r'^lucky_draw/$', views.lucky_draw, name='lucky_draw'),
 ]
 handler404 = views.page_not_found
