@@ -2,15 +2,15 @@ $(document).ready(function(){
 	//旋转角度
 	var angles;
 	//可抽奖次数
-	var clickNum = 5;
+	var clickNum = 500;
 	//旋转次数
 	var rotNum = 0;
 	//中奖公告
 	var notice = null;
 	//转盘初始化
 	var color = ["#626262","#787878","rgba(0,0,0,0.5)","#DCC722","white","#FF4350"];
-	var info = ["谢谢参与","  1000","   10","  500","  100"," 4999","    1","   20"];
-	var info1 = ['再接再厉','      元','     元','  淘金币','     元','  淘金币','     元','  淘金币']
+	var info = ["吃顿","  渠小蕊","   再来一次","  500","  嫖娼"," 500","台式电脑","   AJ"];
+	var info1 = ['好吃的','香吻一枚','     哈哈哈','  零花钱','     1次','  网费','     一台','  一双']
 	canvasRun();
 	$('#tupBtn').bind('click',function(){
 		if (clickNum >= 1) {
@@ -43,11 +43,23 @@ $(document).ready(function(){
 		$('#myCanvas').css('-webkit-transform',degValue);      //Chrome和Safari
 		$('#myCanvas').css('transform',degValue);
 	}
-
+  console.log('kkkkkkkk')
 	//各奖项对应的旋转角度及中奖公告内容
 	function probability(){
 		//获取随机数
-		var num = parseInt(Math.random()*(7 - 0 + 0) + 0);
+    var num
+		var new_num = parseInt(Math.random()*(100 - 0 + 0) + 0);
+
+    if (new_num < 50) {
+      console.log('ooooo:', new_num)
+      num = 0;
+    }
+    else if (50 < new_num < 60) {
+      num = 1
+    }
+    num = 0
+
+		// var num = parseInt(Math.random()*(7 - 0 + 0) + 0);
 		//概率
 		if ( num == 0 ) {
 			angles = 2160 * rotNum + 1800;
@@ -103,7 +115,7 @@ $(document).ready(function(){
 		createCircle();
 		createCirText();
 		initPoint();
-	
+
 		//外圆
 		function createCircle(){
 	        var startAngle = 0;//扇形的开始弧度
@@ -113,7 +125,7 @@ $(document).ready(function(){
 	            startAngle = Math.PI*(i/4-1/8);
 	            endAngle = startAngle+Math.PI*(1/4);
 	            ctx.save();
-	            ctx.beginPath(); 
+	            ctx.beginPath();
 	            ctx.arc(150,150,100, startAngle, endAngle, false);
 	            ctx.lineWidth = 120;
 	            if (i%2 == 0) {
@@ -123,11 +135,11 @@ $(document).ready(function(){
 	            }
 	            ctx.stroke();
 	            ctx.restore();
-	        } 
+	        }
 	    }
 
 	    //各奖项
-	    function createCirText(){	 
+	    function createCirText(){
 		    ctx.textAlign='start';
 		    ctx.textBaseline='middle';
 		    ctx.fillStyle = color[3];
@@ -147,7 +159,7 @@ $(document).ready(function(){
 		    }
 		}
 
-		function initPoint(){ 
+		function initPoint(){
 	        //箭头指针
 	        ctx1.beginPath();
 	        ctx1.moveTo(100,24);
@@ -164,7 +176,7 @@ $(document).ready(function(){
 	        ctx3.fill();
 	        ctx3.closePath();
 	        //小圆文字
-	        ctx3.font = "Bold 20px Microsoft YaHei"; 
+	        ctx3.font = "Bold 20px Microsoft YaHei";
 		    ctx3.textAlign='start';
 		    ctx3.textBaseline='middle';
 		    ctx3.fillStyle = color[4];
