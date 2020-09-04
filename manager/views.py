@@ -654,24 +654,58 @@ def add_carousel_view(request):
     if not form.is_valid():
         messages.error(request, "</br>".join(form_error(form)))
         return HttpResponseRedirect(reverse('carousel_list'))
+    edit_id = form.cleaned_data.get('edit_id')
     try:
-        filestream = request.FILES.get('path')
-        key, img_path = upload_data(filestream, '474517132')
-        img_type = int(form.cleaned_data.get('img_type'))
-        CarouselImg.objects.create(
-            name=form.cleaned_data.get('name'),
-            description=form.cleaned_data.get('description'),
-            path=img_path,
-            link=form.cleaned_data.get('link'),
-            weights=form.cleaned_data.get('weights'),
-            img_type=img_type,
-        )
-        messages.success(request, '添加成功')
-        if img_type == CarouselImgType.BANNER:
-            cache.delete_pattern('tmp_carouse_imgs')  # 清除缓存
-        elif img_type == CarouselImgType.ADS:
-            cache.delete_pattern('tmp_ads_imgs')  # 清除缓存
-        return HttpResponseRedirect(reverse('carousel_list'))
+        # 添加
+        if not edit_id:
+            filestream = request.FILES.get('path')
+            key, img_path = upload_data(filestream, '474517132')
+            img_type = int(form.cleaned_data.get('img_type'))
+            CarouselImg.objects.create(
+                name=form.cleaned_data.get('name'),
+                description=form.cleaned_data.get('description'),
+                path=img_path,
+                link=form.cleaned_data.get('link'),
+                weights=form.cleaned_data.get('weights'),
+                img_type=img_type,
+            )
+            messages.success(request, '添加成功')
+            if img_type == CarouselImgType.BANNER:
+                cache.delete_pattern('tmp_carouse_imgs')  # 清除缓存
+            elif img_type == CarouselImgType.ADS:
+                cache.delete_pattern('tmp_ads_imgs')  # 清除缓存
+            return HttpResponseRedirect(reverse('carousel_list'))
+        else:
+            # 编辑
+            if request.FILES.get('path'):
+                filestream = request.FILES.get('path')
+                key, img_path = upload_data(filestream, '474517132')
+                img_type = int(form.cleaned_data.get('img_type'))
+                CarouselImg.objects.filter(id=edit_id).update(
+                    name=form.cleaned_data.get('name'),
+                    description=form.cleaned_data.get('description'),
+                    path=img_path,
+                    link=form.cleaned_data.get('link'),
+                    weights=form.cleaned_data.get('weights'),
+                    img_type=img_type,
+                    last_update=datetime.now()
+                )
+            else:
+                img_type = int(form.cleaned_data.get('img_type'))
+                CarouselImg.objects.filter(id=edit_id).update(
+                    name=form.cleaned_data.get('name'),
+                    description=form.cleaned_data.get('description'),
+                    link=form.cleaned_data.get('link'),
+                    weights=form.cleaned_data.get('weights'),
+                    img_type=img_type,
+                    last_update=datetime.now()
+                )
+            messages.success(request, '编辑成功')
+            if img_type == CarouselImgType.BANNER:
+                cache.delete_pattern('tmp_carouse_imgs')  # 清除缓存
+            elif img_type == CarouselImgType.ADS:
+                cache.delete_pattern('tmp_ads_imgs')  # 清除缓存
+            return HttpResponseRedirect(reverse('carousel_list'))
     except Exception as e:
         messages.error(request, '添加失败: %s' % e)
         return HttpResponseRedirect(reverse('carousel_list'))

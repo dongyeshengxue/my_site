@@ -36,9 +36,14 @@ class AddMusicForm(forms.Form):
 
 
 class AddCarouselForm(forms.Form):
+    edit_id = forms.IntegerField(label='link_id', required=False)
+    if edit_id:
+        path = forms.FileField(label='图片', required=False)
+    else:
+        path = forms.FileField(label='图片')
+
     name = forms.CharField(label='图片名称')
     description = forms.CharField(label='图片描述')
-    path = forms.FileField(label='图片')
     link = forms.CharField(label='图片外链', required=False)
     img_type = forms.ChoiceField(label='图片类型', choices=CarouselImgType.CHOICES)
     weights = forms.IntegerField(label='图片权重')
